@@ -3,7 +3,7 @@
 <head>
 
 <title>CODE DEBUGGING</title>
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
 
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-   <!---------------------------------------------------------------------------------------------main nav-bar----------------------------------------------------------------------->
+   <!--main nav-bar-->
    
 <nav class="main-nav-outer">
 	<div class="container">
@@ -30,7 +30,7 @@
 	</div>
 </nav>
 
-<!-----------------------------------------------------------------------------------------------list of tabs--------------------------------------------------------------------------->
+<!--list of tabs-->
 <div class="container tabs">
   <h2 class="heading">CODE DEBUGGING</h2>
   <ul class="nav nav-tabs tabstitle">
@@ -41,7 +41,7 @@
     <li class="list"><a data-toggle="tab" href="#PYTHON">PYTHON</a></li>
   </ul>
 
-  <!--------------------------------------------------------------------------------contents and images for the tabs----------------------------------------------------------------->
+  <!--contents and images for the tabs-->
  
  <div class="tab-content">
   <div id="RULES" class="tab-pane fade in active">
@@ -63,19 +63,20 @@
   </div>
 </div>
 
-<!-- text area for the answer------------------------------------>
+<!-- reply for the submitted answer -->
+<p id="ans_status" style="width:500px;"></p>
+<!-- text area for the answer-->
+
 
 <div class="ans">
-<form class="answer"><textarea class="statusbox form-control space" rows="2" placeholder="Your Answer"></textarea></form>
-
-<!----------Submit button------------------------------------------>
-<div class="button-group">  
-<a href="#" class="btn btn-primary">Submit</a>
-
-</div>
+<form class="answer"><textarea id="answerbox" class="statusbox form-control space" rows="1" placeholder="Your Answer" name="debug_ans"></textarea>
+</form>
+		    <div class="button-group"> 
+		    	<input type="submit" name="submit" value="Submit Answer" class="btn btn-primary" onclick=reply()>
+		    </div>
 </div>
 
-<!--footer---------------------------------------------------------------------------------------------------------------------------->
+<!--footer-->
 <section id="contact" class="section footer">
 		<div class="container">
 <div class="col-sm-6"></div>
@@ -87,11 +88,31 @@ treasure could be located anywhere around the world.</p>
 </div>
 </section>
 
-
+<script>
+function reply() {
+	var str=document.getElementById("answerbox").value;
+    if (str.length == 0) { 
+        document.getElementById("ans_status").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		if(xmlhttp.responseText!="Success")
+                document.getElementById("ans_status").innerHTML = xmlhttp.responseText;
+		else
+		window.location="http://localhost/return-TREASURE/debugging/treasure.php";
+            }
+        };
+        xmlhttp.open("GET", "index.php?q=" + str, true);
+        xmlhttp.send();
+    }
+}
+</script>
 
 <script type="text/javascript">
     $(document).ready(function(e) {
-        $('#test').scrollToFixed();
+        $('#test').scrollToFixed(); 
         $('.res-nav_click').click(function(){
             $('.main-nav').slideToggle();
             return false    
@@ -99,6 +120,7 @@ treasure could be located anywhere around the world.</p>
         });
         
     });
+
 </script>
 </body>
 </html>
