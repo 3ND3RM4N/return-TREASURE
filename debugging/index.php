@@ -1,5 +1,6 @@
 <?php
 	//require("registrationform.php");				//importing file registrationform.php
+	/*initialisation part*/
 	$last_id=12;
 	$last_id=12;
 	$treasure1=6;
@@ -8,11 +9,12 @@
 	$pass2=0;
 	$original_debug_ans1="m<n";
 	$original_debug_ans2="n>m";
-	$_COOKIE[$cookie_name]='div1_11';
+	$_COOKIE[$cookie_name]='div1_11';				//to be removed after merging
 	$debug_ans="";
 	$ratio1 = $last1_id/4;							/*	dividing into four groups w.r.t treasures i.e 											6,5,4 or 3 	*/
 	$ratio2 = $last2_id/4;
 
+	/*done initialisation*/
         $debug_ans = edit_input($_REQUEST["q"]);	//editing input	
 		
 		  if (empty($debug_ans)) {				//check if the answer submitted is empty
