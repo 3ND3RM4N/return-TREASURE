@@ -22,7 +22,7 @@ body {
 }
 h2{
 	font-size:34px;
-	color:#222222;
+	color:#6f050f;
 	font-family: 'Montserrat', sans-serif;
 	font-weight:700;
 	letter-spacing: -1px;
@@ -42,9 +42,8 @@ p{
 .main-nav-outer{
 	padding:0px;
 	border-bottom:1px solid #dddddd;
-	box-shadow:0 4px 5px -3px #ececec;
 	position:relative;
-	background-color:#d9b15a;
+	background-color:#79161F;
 	
 }
 .main-nav{
@@ -78,7 +77,7 @@ p{
 
 .footer{
 	padding:3px 0 3px;
-background-color:#f0d586;
+background-color:#6f050f;
 }
 
 .tabs{
@@ -120,7 +119,7 @@ background-color:#f0d586;
 }
 .nav-tabs li a{
 	color:#eeeeee;
-background-color:#9de8df;
+background-color:#6f050f;
     border-radius: 6px 6px 0 0;
 }
 .nav-tabs li a:hover{
@@ -129,7 +128,7 @@ background-color:#9de8df;
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
     color:white;
     cursor: default;
-    background-color:#1c92cd;
+    background-color:#d49b15;
     border: 1px solid #ddd;
     border-bottom-color: transparent;
 }
@@ -162,4 +161,12 @@ body{
 	color:white;
 	padding-bottom:2%;
 	padding-top:2%;
+}
+#ans_status{
+	position:relative;
+	color:#7b0d0d;
+	left:475px;
+	font-weight:bold;
+	font-size:18px;
+	bottom:20px;
 }

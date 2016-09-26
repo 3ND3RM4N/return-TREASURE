@@ -28,15 +28,15 @@ CREATE DATABASE IF NOT EXISTS `return_treasure`;
 
 #creating teams table
 
-CREATE TABLE IF NOT EXISTS `return_treasure`.`div1Teams` ( `id` INT(150) UNSIGNED NOT NULL AUTO_INCREMENT , `team_name` VARCHAR(40) NOT NULL , `mem1_name` VARCHAR(50) NOT NULL , `mem2_name` VARCHAR(50) NOT NULL , `mem3_name` VARCHAR(50) NOT NULL , `mem1_adm` VARCHAR(30) NOT NULL , `mem2_adm` VARCHAR(30) NOT NULL , `mem3_adm` VARCHAR(30) NOT NULL , `password` VARCHAR(80) NOT NULL , `phon_no` INT(20) NOT NULL , `division` ENUM('1','2') NOT NULL , `cookie` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `return_treasure`.`div1teams` ( `id` INT(150) UNSIGNED NOT NULL AUTO_INCREMENT , `team_name` VARCHAR(40) NOT NULL , `mem1_name` VARCHAR(50) NOT NULL , `mem2_name` VARCHAR(50) NOT NULL , `mem3_name` VARCHAR(50) NOT NULL , `mem1_adm` VARCHAR(30) NOT NULL , `mem2_adm` VARCHAR(30) NOT NULL , `mem3_adm` VARCHAR(30) NOT NULL , `password` VARCHAR(80) NOT NULL , `phon_no` INT(20) NOT NULL , `division` ENUM('1','2') NOT NULL , `cookie` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `return_treasure`.`div2Teams` ( `id` INT(150) UNSIGNED NOT NULL AUTO_INCREMENT , `team_name` VARCHAR(40) NOT NULL , `mem1_name` VARCHAR(50) NOT NULL , `mem2_name` VARCHAR(50) NOT NULL , `mem3_name` VARCHAR(50) NOT NULL , `mem1_adm` VARCHAR(30) NOT NULL , `mem2_adm` VARCHAR(30) NOT NULL , `mem3_adm` VARCHAR(30) NOT NULL , `password` VARCHAR(80) NOT NULL , `phon_no` INT(20) NOT NULL , `division` ENUM('1','2') NOT NULL , `cookie` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE IF NOT EXISTS `return_treasure`.`div2teams` ( `id` INT(150) UNSIGNED NOT NULL AUTO_INCREMENT , `team_name` VARCHAR(40) NOT NULL , `mem1_name` VARCHAR(50) NOT NULL , `mem2_name` VARCHAR(50) NOT NULL , `mem3_name` VARCHAR(50) NOT NULL , `mem1_adm` VARCHAR(30) NOT NULL , `mem2_adm` VARCHAR(30) NOT NULL , `mem3_adm` VARCHAR(30) NOT NULL , `password` VARCHAR(80) NOT NULL , `phon_no` INT(20) NOT NULL , `division` ENUM('1','2') NOT NULL , `cookie` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 #creating points table
 
-CREATE TABLE `return_treasure`.`div1points` ( `team_name` VARCHAR(40) NOT NULL , `team_points` INT(20) NOT NULL , `treasure` INT(10) NOT NULL , `pass_id` INT(10) NOT NULL , `achived_t` INT(10) NOT NULL ) ENGINE = InnoDB;
+CREATE TABLE `return_treasure`.`div1points` ( `id` INT(150) UNSIGNED NOT NULL AUTO_INCREMENT , `team_name` VARCHAR(40) NOT NULL , `team_points` INT(20) NOT NULL , `treasure` INT(10) NOT NULL , `pass_id` INT(10) NOT NULL , `achieved_t` INT(10) NOT NULL, `cookie` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
-CREATE TABLE `return_treasure`.`div2points` ( `team_name` VARCHAR(40) NOT NULL , `team_points` INT(20) NOT NULL , `treasure` INT(10) NOT NULL , `pass_id` INT(10) NOT NULL , `achived_t` INT(10) NOT NULL ) ENGINE = InnoDB;
+CREATE TABLE `return_treasure`.`div2points` ( `id` INT(150) UNSIGNED NOT NULL AUTO_INCREMENT , `team_name` VARCHAR(40) NOT NULL , `team_points` INT(20) NOT NULL , `treasure` INT(10) NOT NULL , `pass_id` INT(10) NOT NULL , `achieved_t` INT(10) NOT NULL, `cookie` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 #creating questions and locations tables
 
@@ -55,35 +55,64 @@ CREATE TABLE IF NOT EXISTS `return_treasure`.`curr_pos` ( `team_name` VARCHAR(40
 #done done done
 
 
-#inserting some raw values in teams tables
+/*inserting some raw values in teams tables*/
 
-insert into return_treasure.div1teams (id,team_name,mem1_name,mem2_name,mem3_name,mem1_adm,mem2_adm,mem3_adm,password,phon_no,division,cookie)
-values (1,'hackstreet boys','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(12,'hackstreet boys','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(2,'team_coder','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(3,'codeforce1','abhinav','mukesh','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(4,'codeforce2','peter parker','parker','peter',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(5,'codeforce3','steve','steve2','steve3',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(6,'codeforce4','bob','will','george',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(7,'hackers','pratyush','rituraj','shobhit',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(8,'hunters','pranay_bhai','pranay','pannu',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(9,'team_mario','bikram','naruto','rochak',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(10,'bonaza','ron','harrry','emma',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(11,'perverts','jenifer','mia','lokesh',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353');
+INSERT INTO return_treasure.div1teams (id,team_name,mem1_name,mem2_name,mem3_name,mem1_adm,mem2_adm,mem3_adm,password,phon_no,division,cookie)
+VALUES (1,'hackstreet boys','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_1'),
+(12,'hackstreet boys','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_12'),
+(2,'team_coder','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_2'),
+(3,'codeforce1','abhinav','mukesh','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_3'),
+(4,'codeforce2','peter parker','parker','peter',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_4'),
+(5,'codeforce3','steve','steve2','steve3',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_5'),
+(6,'codeforce4','bob','will','george',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_6'),
+(7,'hackers','pratyush','rituraj','shobhit',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_7'),
+(8,'hunters','pranay_bhai','pranay','pannu',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_8'),
+(9,'team_mario','bikram','naruto','rochak',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_9'),
+(10,'bonaza','ron','harrry','emma',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_10'),
+(11,'perverts','jenifer','mia','lokesh',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div1_11');
 
-insert into return_treasure.div2teams (id,team_name,mem1_name,mem2_name,mem3_name,mem1_adm,mem2_adm,mem3_adm,password,phon_no,division,cookie)
-values (1,'hackstreet boys','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(12,'hackstreet boys','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(2,'team_coder','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(3,'codeforce1','abhinav','mukesh','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(4,'codeforce2','peter parker','parker','peter',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(5,'codeforce3','steve','steve2','steve3',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(6,'codeforce4','bob','will','george',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(7,'hackers','pratyush','rituraj','shobhit',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(8,'hunters','pranay_bhai','pranay','pannu',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(9,'team_mario','bikram','naruto','rochak',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(10,'bonaza','ron','harrry','emma',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353'),
-(11,'perverts','jenifer','mia','lokesh',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'random_1224353');
+INSERT INTO return_treasure.div2teams (id,team_name,mem1_name,mem2_name,mem3_name,mem1_adm,mem2_adm,mem3_adm,password,phon_no,division,cookie)
+VALUES (1,'hackstreet boys','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_1'),
+(12,'hackstreet boys','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_12'),
+(2,'team_coder','aarush','sangamo','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_2'),
+(3,'codeforce1','abhinav','mukesh','harman',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_3'),
+(4,'codeforce2','peter parker','parker','peter',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_4'),
+(5,'codeforce3','steve','steve2','steve3',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_5'),
+(6,'codeforce4','bob','will','george',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_6'),
+(7,'hackers','pratyush','rituraj','shobhit',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_7'),
+(8,'hunters','pranay_bhai','pranay','pannu',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_8'),
+(9,'team_mario','bikram','naruto','rochak',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_9'),
+(10,'bonaza','ron','harrry','emma',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_10'),
+(11,'perverts','jenifer','mia','lokesh',1424,1427,1300,'098f6bcd4621d373cade4e832627b4f6',123456789,1,'div2_11');
 
-# Hurrey done up with inserting false names
+INSERT INTO return_treasure.div1points
+(id,team_name,team_points,treasure,pass_id,achieved_t,cookie)
+VALUES (1,'hackstreet boys',0,6,0,0,'div1_1'),
+(12,'hackstreet boys',0,6,0,0,'div1_12'),
+(2,'team_coder',0,6,0,0,'div1_2'),
+(3,'codeforce1',0,6,0,0,'div1_3'),
+(4,'codeforce2',0,6,0,0,'div1_4'),
+(5,'codeforce3',0,6,0,0,'div1_5'),
+(6,'codeforce4',0,6,0,0,'div1_6'),
+(7,'hackers',0,6,0,0,'div1_7'),
+(8,'hunters',0,6,0,0,'div1_8'),
+(9,'team_mario',0,6,0,0,'div1_9'),
+(10,'bonaza',0,6,0,0,'div1_10'),
+(11,'perverts',0,6,0,0,'div1_11');
+
+INSERT INTO return_treasure.div2points
+(id,team_name,team_points,treasure,pass_id,achieved_t,cookie)
+VALUES (1,'hackstreet boys',0,6,0,0,'div2_1'),
+(12,'hackstreet boys',0,6,0,0,'div2_12'),
+(2,'team_coder',0,6,0,0,'div2_2'),
+(3,'codeforce1',0,6,0,0,'div2_3'),
+(4,'codeforce2',0,6,0,0,'div2_4'),
+(5,'codeforce3',0,6,0,0,'div2_5'),
+(6,'codeforce4',0,6,0,0,'div2_6'),
+(7,'hackers',0,6,0,0,'div2_7'),
+(8,'hunters',0,6,0,0,'div2_8'),
+(9,'team_mario',0,6,0,0,'div2_9'),
+(10,'bonaza',0,6,0,0,'div2_10'),
+(11,'perverts',0,6,0,0,'div2_11');
+# Hurrey done up wit inserting false names
 # 
